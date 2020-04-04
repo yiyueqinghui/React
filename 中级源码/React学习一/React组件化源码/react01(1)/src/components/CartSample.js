@@ -17,11 +17,12 @@ export default class CartSample extends Component {
     this.addGood = this.addGood.bind(this);
   }
 
-  //   回调函数声明为箭头函数
+  // 回调函数声明为箭头函数
   textChange = e => {
     this.setState({ text: e.target.value });
   };
-
+  
+  //如果写成函数的形式，则由于this指向的变化，需要重新修改this指向。即 this.addGood = this.addGood.bind(this);
   addGood() {
     this.setState(prevState => {
       return {
@@ -35,6 +36,21 @@ export default class CartSample extends Component {
       };
     });
   }
+
+  //如果写成变量的形式，则不需要修改this指向
+  // addGood = () =>{
+  //   this.setState(prevState => {
+  //     return {
+  //       goods: [
+  //         ...prevState.goods,
+  //         {
+  //           id: prevState.goods.length + 1,
+  //           text: prevState.text
+  //         }
+  //       ]
+  //     };
+  //   });
+  // }
 
   //   加购函数
   addToCart = good => {

@@ -8,22 +8,51 @@ import CartSample from './components/CartSample';
 import Lifecycle from './components/Lifecycle';
 import AntdTest from './components/AntdTest';
 import CommentList from './components/CommentList';
-// import Hoc from './components/Hoc';
+//import Hoc from './components/Hoc';   //此组件内部的@用法，暂缓
 import Composition from './components/Composition';
+import Inherit from './components/Inherit'
 
 
 function formatName(user) {
   return user.firstName + " " + user.lastName;
 }
 
+
+function LeftCom(){
+  return <div>
+     <ul>
+       <li>PHP</li>
+       <li>Java</li>
+     </ul>
+  </div>
+}
+
+function RightCom(){
+  return <div>
+     <ul>
+       <li>Python</li>
+       <li>JavaScript</li>
+     </ul>
+  </div>
+}
+
 class App extends Component {
-  state = {prop:'some prop'}
+  state = { 
+    name:'some prop',
+    lifeProps:{
+      name:'July',
+      age:25
+    }
+  }
   componentDidMount(){
-    this.setState({prop:'a new prop'})
+    this.setState({name:'a new prop'})
 
     setTimeout(() => {
-      this.setState({prop:''})
-    }, 2000);
+      let newLife = Object.assign({},this.state.lifeProps,{name:'modify name'});
+      this.setState({
+        lifeProps:newLife
+      })
+    }, 15000);
     
   }
   render() {
@@ -53,7 +82,13 @@ class App extends Component {
         {/* <CartSample title="购物车"></CartSample> */}
 
         {/* 生命周期 */}
-        {/* {this.state.prop && <Lifecycle prop={this.state.prop}></Lifecycle>} */}
+        {/* <Lifecycle name={this.state.name}></Lifecycle> */}
+
+        {/* 不传递属性，采用子组件中的默认属性*/}
+        {/* <Lifecycle></Lifecycle> */}    
+
+        {/* 多个属性的一次性传递，采用es6的... */}
+        {/* <Lifecycle {...this.state.lifeProps} ></Lifecycle> */}
 
         {/* antd */}
         {/* <AntdTest></AntdTest> */}
@@ -65,7 +100,12 @@ class App extends Component {
         {/* <Hoc></Hoc> */}
 
         {/* 组件复合 */}
-        <Composition></Composition>
+        {/* <Composition></Composition> */}
+
+        {/* 组件继承,传递组件给子组件 */}
+        <Inherit left={ <LeftCom/> } right={ <RightCom/> } >
+           <h4>来自父组件的内容</h4>
+        </Inherit>
       </div>
     );
   }
