@@ -8,7 +8,7 @@ import CartSample from './components/CartSample';
 import Lifecycle from './components/Lifecycle';
 import AntdTest from './components/AntdTest';
 import CommentList from './components/CommentList';
-import Hoc from './components/Hoc';
+// import Hoc from './components/Hoc';
 import Composition from './components/Composition';
 
 

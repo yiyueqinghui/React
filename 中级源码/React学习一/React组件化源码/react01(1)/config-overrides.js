@@ -1,16 +1,16 @@
-const { injectBabelPlugin } = require("react-app-rewired");
-module.exports = function override(config, env) {
-  config = injectBabelPlugin(
-    // 在默认配置基础上注入
-    // 插件名，插件配置
-    ["import", { libraryName: "antd", libraryDirectory: "es", style: "css" }],
-    config
-  );
+const {
+  override,
+  fixBabelImports,
+  addLessLoader,
+} = require("customize-cra");
 
-  config = injectBabelPlugin(
-    ["@babel/plugin-proposal-decorators", { legacy: true }],
-    config
-  );
 
-  return config;
-};
+module.exports = override(
+  fixBabelImports("import", {
+    libraryName: "antd", libraryDirectory: "es", style: true // change importing css to less
+  }),
+  addLessLoader({
+    javascriptEnabled: true,
+    modifyVars: { "@primary-color": "#1DA57A" }
+  })
+);
