@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>前端路由实现</title>
+</head>
+
+<body>
+    <div>
+        <div class="nav">
+           <a href="javascript:void(0)" data-path="index">首页</a>
+           <a href="javascript:void(0)" data-path="news">新闻</a>
+           <a href="javascript:void(0)" data-path="about">关于</a>
+        </div>
+        <div id="router">
+            <!-- 内容加载区域 -->
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            history.replaceState(null, null, ''); //最开始的状态，采用replace直接替换
+            document.querySelector('#router').innerHTML = '<p>首页</p>'
+            
+            var allLinks = document.getElementsByTagName('a');
+            var urlArr = window.location.href.split('?');
+            var currentRouter = urlArr[urlArr.length - 1]
+            currentRouter  = currentRouter ? currentRouter : 'index';
+            for(var i=0;i<allLinks.length;i++){
+                var allLinkItem = allLinks[i];
+                var path = allLinkItem.getAttribute('data-path');
+                allLinkItem.addEventListener('click', function () {
+                    var text = this.text;
+                    document.querySelector('#router').innerHTML = '<p>' + text + '</p>';
+                    var url = this.getAttribute('data-path');
+                    history.pushState(null, null, '?' + url);
+                    // window.location.href = "http://localhost:3000/history.html?"+url;
+                })
+                if(path === currentRouter){
+                    allLinkItem.click();
+                }
+            }
+
+
+            
+
+            
+        })()
+    </script>
+
+</body>
+
+</html>

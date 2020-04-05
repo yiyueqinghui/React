@@ -17,8 +17,10 @@ export default class Inherit extends React.Component {
 
                 {/* 也可以通过属性的方式把组件传递给属性 */}
                 <div>
-                   <p className="left" style={{width:'50%',float:'left'}}> {this.props.left}</p>
-                   <p className="right" style={{width:'50%',float:'right'}}> {this.props.right}</p>
+                   {this.props.left}
+                   {this.props.right}
+                   {/* <div className="left" style={{width:'50%',float:'left'}}> {this.props.left}</div> */}
+                   {/* <div className="right" style={{width:'50%',float:'right'}}> {this.props.right}</div> */}
                 </div>
 
             </div>

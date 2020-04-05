@@ -31,3 +31,10 @@
     transform: rotate(360deg);
   }
 }
+
+.checked{
+  color:red;
+}
+.jump{
+  margin:0 20px;
+}

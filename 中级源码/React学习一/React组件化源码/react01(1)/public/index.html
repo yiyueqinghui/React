@@ -38,4 +38,12 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+     // 在当前 URL 的锚部分(以 '#' 号为开始) 发生改变时触发
+     window.addEventListener('hashchange',function(){
+       let hash = window.locaiton.hash;
+       console.log(hash)
+     })
+ 
+  </script>
 </html>

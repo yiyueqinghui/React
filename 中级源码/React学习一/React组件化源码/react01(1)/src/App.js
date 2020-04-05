@@ -11,6 +11,8 @@ import CommentList from './components/CommentList';
 //import Hoc from './components/Hoc';   //此组件内部的@用法，暂缓
 import Composition from './components/Composition';
 import Inherit from './components/Inherit'
+import CreateReactApp from './components/CreateReactApp'
+import RouterSample from './components/RouterSample'
 
 
 function formatName(user) {
@@ -19,21 +21,21 @@ function formatName(user) {
 
 
 function LeftCom(){
-  return <div>
-     <ul>
+  return (
+     <ul style={{width:'50%',float:'left'}} >
        <li>PHP</li>
        <li>Java</li>
      </ul>
-  </div>
+  )
 }
 
 function RightCom(){
-  return <div>
-     <ul>
+  return (
+      <ul style={{width:'50%',float:'right'}} >
        <li>Python</li>
        <li>JavaScript</li>
      </ul>
-  </div>
+  )
 }
 
 class App extends Component {
@@ -103,9 +105,18 @@ class App extends Component {
         {/* <Composition></Composition> */}
 
         {/* 组件继承,传递组件给子组件 */}
-        <Inherit left={ <LeftCom/> } right={ <RightCom/> } >
+        {/* <Inherit left={ <LeftCom/> } right={ <RightCom/> } >
            <h4>来自父组件的内容</h4>
-        </Inherit>
+        </Inherit> */}
+
+        {/* 脚手架创建过程 */}
+        {/* <CreateReactApp/> */}
+
+        {/* 路由的实现原理 */}
+        <RouterSample/>
+
+
+
       </div>
     );
   }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+         <a href="#/">首页</a>
+         <a href="#/friend">朋友圈</a>
+         <a href="#/my">个人中心</a>
+    </header>
+    <div id="content">
+        
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        updateContent() 
+    }
+
+    let contentObj = document.querySelector('#content')
+    window.addEventListener('hashchange',function(){
+       updateContent()      
+    })
+
+    function updateContent(){
+       let hash = window.location.hash;
+       console.log(hash);
+       if(hash === '#/'){
+           contentObj.innerHTML = '首页'
+       }else if(hash === '#/friend'){
+           contentObj.innerHTML = '朋友圈'
+       }else if(hash === '#/my'){
+           contentObj.innerHTML = '个人中心'
+       }  
+    }
+</script>
+</html>
