@@ -13,6 +13,7 @@ import Composition from './components/Composition';
 import Inherit from './components/Inherit'
 import CreateReactApp from './components/CreateReactApp'
 import RouterSample from './components/RouterSample'
+import ReduxSample from './components/ReduxSample'
 
 
 function formatName(user) {
@@ -112,8 +113,11 @@ class App extends Component {
         {/* 脚手架创建过程 */}
         {/* <CreateReactApp/> */}
 
-        {/* 路由的实现原理 */}
-        <RouterSample/>
+        {/* react-router-dom 路由的实现原理 */}
+        {/* <RouterSample/> */}
+
+        {/* redux 状态管理 */}
+        <ReduxSample/>
 
 
 
