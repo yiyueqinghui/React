@@ -1,4 +1,0 @@
-{
-    "presets":["env","satge-0"],
-    "plugins":["transform-runtime"]
-}

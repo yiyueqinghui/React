@@ -1,0 +1,15 @@
+dl dd {
+    line-height: 25px;
+    font-size: 16px;
+}
+ul li {
+    margin:5px 0;
+    font-size: 14px;
+    background: url("../img/test.jpg") no-repeat left center;
+    background-size: 100% auto;
+}
+#box{
+    width:200px;
+    height:400px;
+    background: blue;
+}

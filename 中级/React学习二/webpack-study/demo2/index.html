@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            margin:5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h4>App开发历史</h4>
+    <ol>
+        <li>ionic 最早开发app框架，手机浏览器内核运行</li>
+        <li>ReactNative(RN) (Facebook) 是将前端代码转化为Android 和 IOS 原生组件，使用JScore来渲染，性能比较高，接近原生</li>
+        <li>week (阿里巴巴)</li>
+        <li>Fluter (谷歌) 第一个应用就是闲鱼，2018年12月发布</li>
+    </ol>
+    <h4>web前端发展史</h4>
+    <ol>
+        <li>jquery 模版引擎</li>
+        <li>Angular.js 前端进入工程化时代，数据双项绑定(脏检测)，以及模块化</li>
+        <li>React.js 单向数据流，虚拟Dom, 组件化</li>
+        <li>Vue.js 借鉴了react的虚拟Dom,Angular的双项绑定</li>
+    </ol>
+
+    <h4>React优势</h4>
+    <ol>
+        <li>组件化,方便复用</li>
+        <li>
+            虚拟Dom<br/>
+            优势一，把虚拟Dom通过不同的渲染器，将其渲染到不同的平台，
+            比如，web端,移动端，Android,IOS,从而实现跨平台开发<br/>
+            优势二，其本质就是一个对象，每次渲染时，通过diff算法找到要修改的地方，
+            仅仅更新那一部分，这对于性能的提高的很大的帮助。<br/>
+            虚拟Dom:     应用 <==> 虚拟Dom <==> 真实Dom.<br/>
+            平常Dom：    应用   <==>  真实Dom <br/>
+        </li>
+    </ol>
+    <h5>react 安装插件可用npm　或　yarn　，yarn 相比npm 速度更快</h5>
+    <ol>
+        <li>yarn安装：  npm install yarn -g </li>
+        <li>使用yarn安装插件：  yarn add 插件名</li>
+    </ol>
+</body>
+</html>
