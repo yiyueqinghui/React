@@ -14,6 +14,7 @@ import Inherit from './components/Inherit'
 import CreateReactApp from './components/CreateReactApp'
 import RouterSample from './components/RouterSample'
 import ReduxSample from './components/ReduxSample'
+import RefUse from './components/RefUse'
 
 
 function formatName(user) {
@@ -117,7 +118,10 @@ class App extends Component {
         {/* <RouterSample/> */}
 
         {/* redux 状态管理 */}
-        <ReduxSample/>
+        {/* <ReduxSample/> */}
+
+        {/* ref的三种使用方式 */}
+        <RefUse />
 
 
 

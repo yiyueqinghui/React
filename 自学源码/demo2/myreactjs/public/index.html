@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>React App</title>
+  <style>
+    .red {
+      color: red
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="learn-note">
+    <h4 style="margin-top: 200px;border-top: 1px solid gray;text-align: center;">react源码学习笔记</h4>
+    <h4>1,JSX</h4>
+    <ul>
+      <li>
+        JSX是一种js的语法扩展，表面上像HTML，本质上还是通过babel转换为js执行的.其中内部逻辑如下：
+        <ol>
+          <li>第一步，安装babel-plugin-transform-react-jsx依赖，<a href="https://www.npmjs.com/package/babel-plugin-transform-react-jsx">参考链接</a></li>
+          <li>第二步，新建并配制.babelrc如下<br/>
+            <img src="./img/1.png" style="width:800px" />
+          </li>
+          <li>
+            第三步，jsx通过该依赖转换结果如下<br/>
+            <img src="./img/2.jpg" style="width:800px" />
+          </li>
+          <li>
+            第四步，最终通过执行自定义注入的方法返回profile对象如下(例子如下)<br/>
+            <img src="./img/3.jpg" style="width:800px" />
+          </li>
+
+        </ol>
+      </li>
+      <li>在React中，JSX本质上就是转换为React.createElement在React内部构建虚拟Dom，最终渲染出页面上的</li>
+    </ul>
+    <h4>2,虚拟DOM</h4>
+    <ul>
+      <li>
+        <a class="red">React中虚拟dom的创建流程本质如下</a><br/>
+        <img src="./img/virtual-dom.png" style="width:50%" />
+      </li>
+      <li>
+        <a class="red">什么是虚拟dom?</a>
+        简单来说,就是使用js对象来描述真实dom元素
+      </li>
+      <li>
+        <a class="red">为什么要使用虚拟dom?</a>
+        <p>1,传统的dom在操作的时候有太多额外的属性，比如说我们在浏览器中打印一个console.dir(document.body),
+          就可心发现它有太多的属性，由于属性过多，导致我们任何的dom操作都会影响到性能，而虚拟dom则是使用简单
+          的js对象来描述一个完整的dom。在渲染到浏览器之前，我们通过它来管理，所以说一旦有任何的更改，
+          我们不需要频繁的去操作dom,只需要去对这个对象做diff操作即可。最后统一转换为真实的dom即可。这也就是
+          虚拟dom快而且性能好的原因。
+        </p>
+        <p style="color:rgb(168, 170, 172)">
+          浏览器渲染页面的原理及流程:<br />
+          浏览器将域名通过网络通信从服务器拿到html文件后，如何渲染页面呢？<br />
+          1.根据html文件构建DOM树和CSSOM树。构建DOM树期间，如果遇到JS，阻塞DOM树及CSSOM树的构建，优先加载JS文件，加载完毕，再继续构建DOM树及CSSOM树。<br />
+          2.构建渲染树（Render Tree）。<br />
+          3.页面的重绘（repaint）与重排（reflow，也有称回流）。页面渲染完成后，若JS操作了DOM节点，根据JS对DOM操作动作的大小，浏览器对页面进行重绘或是重排。
+        </p>
+      </li>
+     
+    </ul>
+    
+  </div>
+</body>
+
+</html>
