@@ -15,6 +15,7 @@ import CreateReactApp from './components/CreateReactApp'
 import RouterSample from './components/RouterSample'
 import ReduxSample from './components/ReduxSample'
 import RefUse from './components/RefUse'
+import TopParent from './components/context/TopParent'
 
 
 function formatName(user) {
@@ -106,10 +107,13 @@ class App extends Component {
         {/* 组件复合 */}
         {/* <Composition></Composition> */}
 
-        {/* 组件继承,传递组件给子组件 */}
+        {/*组件继承,传递组件给子组件  */}
         {/* <Inherit left={ <LeftCom/> } right={ <RightCom/> } >
            <h4>来自父组件的内容</h4>
         </Inherit> */}
+
+        {/*祖孙组件之间数据的传递（React16刚出的createContext,以及16版本之前的childContextType） */}
+        <TopParent />
 
         {/* 脚手架创建过程 */}
         {/* <CreateReactApp/> */}
@@ -121,7 +125,7 @@ class App extends Component {
         {/* <ReduxSample/> */}
 
         {/* ref的三种使用方式 */}
-        <RefUse />
+        {/* <RefUse /> */}
 
 
 
